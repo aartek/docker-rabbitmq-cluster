@@ -16,6 +16,11 @@ else
 
   rabbitmqctl start_app
 
+  echo "Creating user test"
+  rabbitmqctl add_user test test
+  rabbitmqctl set_user_tags test administrator
+  rabbitmqctl set_permissions -p / test ".*" ".*" ".*"
+
   # Tail to keep the a foreground process active..
   tail -f /var/log/rabbitmq/*
 fi

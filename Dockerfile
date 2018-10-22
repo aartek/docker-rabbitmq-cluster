@@ -1,4 +1,4 @@
-FROM rabbitmq:3.5.3-management
+FROM rabbitmq:3.6.16-management
 MAINTAINER Dimitris Kapanidis dimitris.kapanidis@harbur.io
 
 COPY rabbitmq-cluster /usr/local/bin/
