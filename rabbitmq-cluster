@@ -21,6 +21,9 @@ else
   rabbitmqctl set_user_tags test administrator
   rabbitmqctl set_permissions -p / test ".*" ".*" ".*"
 
+  echo "configuring policy"
+  rabbitmqctl set_policy ha-all "" '{"ha-mode":"exactly","ha-params":2,"ha-sync-mode":"automatic","ha-promote-on-shutdown":"when-synced","ha-sync-batch-size":100,"queue-master-locator":"min-masters"}'
+
   # Tail to keep the a foreground process active..
   tail -f /var/log/rabbitmq/*
 fi
